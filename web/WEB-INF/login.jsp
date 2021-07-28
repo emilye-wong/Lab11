@@ -12,6 +12,7 @@
             email: <input type="text" name="email" value="${email}"><br>
             password: <input type="password" name="password"><br>
             <input type="submit" value="Sign in">
+            <a href="forgot">Forgot password</a>
         </form>
     </body>
 </html>

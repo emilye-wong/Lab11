@@ -8,21 +8,34 @@ import java.util.logging.Logger;
 import models.User;
 
 public class AccountService {
-    
+//
+//    public boolean changePassword(String uuid, String password) {
+//        UserService us = new UserService();
+//        try {
+//            User user = us.getByUUID(uuid);
+//            user.setUserPassword(password);
+//            user.setResetPasswordUUID(null);
+//            UserDB ur = new UserDB();
+//            ur.update(user);
+//            return true;
+//        } catch (Exception ex) {
+//            return false;
+//        }
+//    }
+
     public User login(String email, String password, String path) {
         UserDB userDB = new UserDB();
-        
+
         try {
             User user = userDB.get(email);
             if (password.equals(user.getPassword())) {
                 Logger.getLogger(AccountService.class.getName()).log(Level.INFO, "Successful login by {0}", email);
-                
+
                 /*
                 String body = "Successful login by " + user.getFirstName() + " on " + (new java.util.Date()).toString();
                 GmailService.sendMail(email, "Successful Login", body, false);
-                */
-                
-                /*
+                 */
+ /*
                 String to = user.getEmail();
                 String subject = "Notes App Login";
                 String template = path + "/emailtemplates/login.html";
@@ -33,12 +46,12 @@ public class AccountService {
                 tags.put("date", (new java.util.Date()).toString());
                 
                 GmailService.sendMail(to, subject, template, tags);
-                */
+                 */
                 return user;
             }
         } catch (Exception e) {
         }
-        
+
         return null;
     }
 }
