@@ -16,6 +16,7 @@
         <p>Please enter your email address to reset your password.</p>
         <label>Email Address:</label>
         <input type="text" name="email">
+        <br>
         <input type="submit" value="Submit">
         <input type="hidden" name="action" value="reset">
     </body>

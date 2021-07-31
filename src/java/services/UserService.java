@@ -5,6 +5,7 @@
  */
 package services;
 
+import dataaccess.UserDB;
 import models.User;
 
 /**
@@ -13,8 +14,9 @@ import models.User;
  */
 class UserService {
 
-    User getByUUID(String uuid) {
-
+    public User getUUID(String uuid) throws Exception {
+        UserDB userDB = new UserDB();
+        User UUID = userDB.getUUID(uuid);
+        return UUID;
     }
-
 }
