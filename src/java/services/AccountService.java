@@ -10,12 +10,12 @@ import models.User;
 
 public class AccountService {
 
-    public void resetPassword(String email, String path, String url) {
+    public boolean resetPassword(String email, String path, String url) {
         UserDB userDB = new UserDB();
-        User user = userDB.get(email);
         String uuid = UUID.randomUUID().toString();
 
         try {
+            User user = userDB.get(email);
             if (email.equals(user.getEmail())) {
                 Logger.getLogger(AccountService.class.getName()).log(Level.INFO, "Successful reset to {0}", email);
 
@@ -35,16 +35,18 @@ public class AccountService {
                 userDB.update(user);
 
                 GmailService.sendMail(to, subject, template, tags);
+                return true;
             }
         } catch (Exception e) {
 
         }
+        return false;
     }
 
     public boolean changePassword(String uuid, String password) {
         UserService us = new UserService();
         try {
-            User user = us.getByUUID(uuid);
+            User user = us.getUUID(uuid);
             user.setUserPassword(password);
             user.setResetPasswordUUID(null);
             UserDB ur = new UserDB();
