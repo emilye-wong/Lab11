@@ -14,10 +14,12 @@
     <body>
         <h1>Reset Password</h1>
         <p>Please enter your email address to reset your password.</p>
-        <label>Email Address:</label>
-        <input type="text" name="email">
-        <br>
-        <input type="submit" value="Submit">
-        <input type="hidden" name="action" value="reset">
+        <form action="reset" method="post">
+            <label>Email Address:</label>
+            <input type="text" name="email">
+            <br>
+            <input type="submit" value="Submit">
+            <input type="hidden" name="action" value="reset">
+        </form>
     </body>
 </html>
