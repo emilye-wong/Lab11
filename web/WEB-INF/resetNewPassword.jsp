@@ -12,10 +12,12 @@
         <title>New Password</title>
     </head>
     <body>
-        <h1>Enter a new password</h1>
-        <input type="text" name="password">
-        <br>
-        <input type="submit" value="Submit">
-        <input type="hidden" name="action" value="newPassword">
+        <form action="reset" method="post">
+            <h1>Enter a new password</h1>
+            <input type="text" name="password">
+            <br>
+            <input type="submit" value="Submit">
+            <input type="hidden" name="action" value="newPassword">
+        </form>
     </body>
 </html>
